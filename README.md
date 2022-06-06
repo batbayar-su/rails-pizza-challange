@@ -1,11 +1,15 @@
-# DEVELOPMENT
+## DEVELOPMENT
 
 Project uses
 Ruby version: 3.1.0
 Rails: 7.0.3
 VSCode Extensions: Ruby, Ruby solargraph, Rubocop
 
-# RUN LOCALLY
+## DATABASE
+
+![Database diagram](images/table_relation.png)
+
+## RUN LOCALLY
 
 Prerequisite: Docker
 
@@ -16,6 +20,6 @@ To run rails command `docker compose run web rails [command]`.
 
 Ex: `docker compose run web rails c` to open console or `docker compose run web rails routes` to print routes etc..
 
-# DEPLOY
+## DEPLOY
 
 WIP...

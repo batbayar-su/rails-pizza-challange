@@ -20,7 +20,7 @@ export default class extends Controller {
         "Content-Type": "application/json",
         "X-CSRF-Token": csrfToken,
       },
-      body: JSON.stringify({ order: { status: "completed" } }),
+      body: JSON.stringify({ order: { state: "completed" } }),
     })
       .then((response) => response.json())
       .then((data) => {
