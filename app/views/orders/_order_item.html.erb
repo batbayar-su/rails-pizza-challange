@@ -1,0 +1,11 @@
+<li>
+  <%= order_item.item_name %> (<%= order_item.variant_name %>)
+  <ul>
+    <% order_item.order_item_extras.add.any? do %>
+      <li>Add: <%= order_item.order_item_extras.add.map(&:name).join(', ') %></li>
+    <% end %>
+    <% order_item.order_item_extras.remove.any? do %>
+      <li>Remove: <%= order_item.order_item_extras.remove.map(&:name).join(', ') %></li>
+    <% end %>
+  </ul>
+</li>
