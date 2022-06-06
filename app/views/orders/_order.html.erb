@@ -4,10 +4,10 @@
     <div class="column detail-container">
       <div>ID: <%= order.id %></div>
       <div>Created: <%= order.created_at %></div>
-      <div>Promotion codes: <%= order.promotions.any? ? order.promotions.join(', ') : '-' %></div>
-      <div>Discount codes: <%= order.discount || '-' %></div>
+      <div>Promotion codes: <%= order.promotions.any? ? order.promotions.map(&:code).join(', ') : '-' %></div>
+      <div>Discount codes: <%= order.discount&.code || '-' %></div>
       <div class="spacer"></div>
-      <div>Total price: </div>
+      <div>Total price: <%= number_to_currency(order.total_float, { precision: order.total_scale, unit: "€" }) %></div>
       <div class="spacer"></div>
       <button data-action="click->order#complete" data-order-id-param="<%= order.id %>">Complete</button>
       <div data-order-target="errorMessage"></div>

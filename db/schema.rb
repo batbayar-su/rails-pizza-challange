@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_04_102401) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_135617) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -30,6 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_04_102401) do
     t.index ["code"], name: "index_deals_on_code", unique: true
     t.index ["product_id"], name: "index_deals_on_product_id"
     t.index ["product_size_id"], name: "index_deals_on_product_size_id"
+  end
+
+  create_table "deals_orders", force: :cascade do |t|
+    t.bigint "deal_id"
+    t.bigint "order_id"
+    t.index ["deal_id"], name: "index_deals_orders_on_deal_id"
+    t.index ["order_id"], name: "index_deals_orders_on_order_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -72,10 +79,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_04_102401) do
 
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "state"
-    t.string "promotions", default: [], array: true
-    t.string "discount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "discount_id"
+    t.integer "total"
+    t.integer "total_scale"
   end
 
   create_table "product_sizes", force: :cascade do |t|
