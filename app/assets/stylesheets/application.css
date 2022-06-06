@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+.container {
+  width: 1000px;
+  margin: 1rem auto;
+}
+.flex {
+  display: flex;
+}
+.column {
+  width: 50%;
+  min-width: 50%;
+}
+.spacer {
+  height: 1rem;
+}
+.item-list-container ul {
+  margin: 0;
+  padding: 0 1rem;
+}
+.item-list-container li {
+  margin: 0.5rem 0;
+}
+.detail-container > div:first-of-type {
+  margin: 0;
+}
+.detail-container > div {
+  margin: 0.5rem 0;
+}
+.success-message {
+  padding: 0.5rem;
+  background-color: rgba(100, 255, 100, 0.5);
+}

@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Orders</h1>
+  <% if @message %>
+    <div class="success-message"><%= @message %></div>
+  <% end %>
+</div>
+<% if @orders.empty? %>
+  <div class="container">There is no open order</div>
+<% else %>
+  <%= render @orders %>
+<% end %>
