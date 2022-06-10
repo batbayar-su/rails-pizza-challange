@@ -8,6 +8,6 @@ class OrderItemExtra < ApplicationRecord
 
   # @param miltiplier [float]
   def calculate_price(miltiplier)
-    (price * miltiplier).round
+    (price * miltiplier).round if miltiplier
   end
 end
