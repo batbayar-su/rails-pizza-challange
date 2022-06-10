@@ -20,6 +20,8 @@ To run rails command `docker compose run web rails [command]`.
 
 Ex: `docker compose run web rails c` to open console or `docker compose run web rails routes` to print routes etc..
 
+To run tests run `docker compose run web rails spec`
+
 ## DEPLOY
 
-WIP...
+
