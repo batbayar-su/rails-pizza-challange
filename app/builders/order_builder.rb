@@ -7,14 +7,14 @@ class OrderBuilder
   # @param promotions [Array<Deal>] promotion codes
   # @param discount [Deal] discount
   # @return [Order] has OrderItem(s) and OrderItemExtra(s) ready
-  def build(items = [], promotions = [], discount = nil)
+  def self.build(items = [], promotions = [], discount = nil)
     order_items = build_items(items)
     order = Order.new({ promotions:, discount:, order_items:, state: Order::OPEN })
     order.calculate_total
     order
   end
 
-  def build_items(items = [])
+  def self.build_items(items = [])
     items.map do |item|
       # multiplier_percentage = item[:product_size].multiplier_percentage
 
@@ -26,7 +26,7 @@ class OrderBuilder
     end
   end
 
-  def build_item(item, order_item_extras)
+  def self.build_item(item, order_item_extras)
     OrderItem.new({ order_item_extras:,
                     item: item[:product],
                     item_name: item[:product].name,
@@ -38,7 +38,7 @@ class OrderBuilder
                     multiplier_scale: item[:product_size].multiplier_scale })
   end
 
-  def build_item_extras(extras, group)
+  def self.build_item_extras(extras, group)
     extras.map do |extra|
       price = group == OrderItemExtra::ADD ? extra.price : 0
       OrderItemExtra.new({

@@ -9,13 +9,18 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - postgres:/var/lib/postgresql/data
+  webdriver_chrome:
+    image: selenium/standalone-chrome
   web:
     build: .
     volumes:
       - .:/pizza_app
     ports:
       - "3000:3000"
+    environment:
+      - SELENIUM_REMOTE_HOST=webdriver_chrome
     depends_on:
       - db
+      - webdriver_chrome
 volumes:
   postgres:

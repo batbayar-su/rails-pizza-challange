@@ -1,4 +1,4 @@
-FROM ruby:3.1.0
+FROM ruby:3.1.2
 RUN apt-get update -qq && apt-get install -y postgresql-client nodejs
 RUN mkdir /pizza_app
 WORKDIR /pizza_app

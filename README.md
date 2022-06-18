@@ -13,14 +13,22 @@ VSCode Extensions: Ruby, Ruby solargraph, Rubocop
 
 Prerequisite: Docker
 
-To run the project `docker compose up`
-- If something goes wrong try to run `docker compose build` and try to run `up` again
+Run the project with `docker compose up` command.
+
+**If you running the project first time you need to run following commands while `docker compose up` running**
+- `docker compose run web rails db:create` to create databases
+- `docker compose run web rails db:migrate` to run migration
+- `docker compose run web rails db:seed` to fill database with seed data
+
+### RUN TESTS
+
+To run tests run `docker compose run web rails spec`
+
+### RUN CUSTOM COMMANDS
 
 To run rails command `docker compose run web rails [command]`.
 
 Ex: `docker compose run web rails c` to open console or `docker compose run web rails routes` to print routes etc..
-
-To run tests run `docker compose run web rails spec`
 
 ## DEPLOY
 

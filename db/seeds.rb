@@ -28,13 +28,13 @@ promo, discount = Deal.create([
                                 }
                               ])
 
-OrderBuilder.new.build([{ product: tonno, product_size: large }]).save!
-OrderBuilder.new.build([
+OrderBuilder.build([{ product: tonno, product_size: large }]).save!
+OrderBuilder.build([
                          { product: margherita, product_size: large, adds: [onions, cheese, olives] },
                          { product: tonno, product_size: medium, removes: [onions, olives] },
                          { product: margherita, product_size: small }
                        ]).save!
-OrderBuilder.new.build([
+OrderBuilder.build([
                          { product: salami, product_size: medium, adds: [onions], removes: [cheese] },
                          { product: salami, product_size: small },
                          { product: salami, product_size: small },
